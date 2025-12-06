@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celo IP Registry - Immutable Proof of Innovation</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- تم تغيير رابط المكتبة لرابط أكثر استقراراً -->
+    <!-- مكتبة Ethers القوية لتجنب مشاكل التحميل -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/5.7.2/ethers.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -51,11 +51,49 @@
                 <h1 class="text-5xl font-bold text-slate-900 mb-4">Immutable Proof of Innovation</h1>
                 <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                     Secure your intellectual property on the <span class="font-bold text-slate-800">Celo Mainnet</span>. 
-                    Create verifiable, timestamped records of your ideas.
+                    Create verifiable, timestamped records of your ideas that cannot be altered or disputed.
                 </p>
             </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <!-- Feature 1 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 hover:border-amber-300 transition-all">
+                    <div class="w-12 h-12 gold-bg rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Immutable Records</h3>
+                    <p class="text-slate-600">Once registered, your intellectual property is permanently recorded on the blockchain and cannot be altered.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 hover:border-amber-300 transition-all">
+                    <div class="w-12 h-12 gold-bg rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Trusted Timestamps</h3>
+                    <p class="text-slate-600">Every registration includes a verifiable timestamp, proving when your idea was first documented.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 hover:border-amber-300 transition-all">
+                    <div class="w-12 h-12 gold-bg rounded-lg flex items-center justify-center mb-4">
+                        <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-2">Global Verification</h3>
+                    <p class="text-slate-600">Anyone can verify the authenticity of your registration using the unique record ID.</p>
+                </div>
+            </div>
+
             <div class="text-center">
-                <button id="getStartedBtn" class="gold-bg hover:bg-amber-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg">Get Started</button>
+                <button id="getStartedBtn" class="gold-bg hover:bg-amber-500 text-white px-8 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg">
+                    Get Started
+                </button>
             </div>
         </section>
 
@@ -63,31 +101,48 @@
         <section id="registryView" class="hidden fade-in">
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Register Your IP</h2>
+                    <h2 class="text-4xl font-bold text-slate-900 mb-4">Register Your Intellectual Property</h2>
+                    <p class="text-lg text-slate-600">Complete the form below to create an immutable record on the Celo blockchain.</p>
                 </div>
+
                 <div id="connectPrompt" class="bg-amber-50 border-2 border-amber-300 rounded-xl p-8 mb-8 text-center">
+                    <svg class="w-16 h-16 gold-accent mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+                    </svg>
                     <h3 class="text-2xl font-semibold text-slate-900 mb-2">Wallet Connection Required</h3>
-                    <button id="connectBtn2" class="gold-bg hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">Connect Wallet</button>
+                    <p class="text-slate-600 mb-4">Please connect your Celo wallet to register your intellectual property.</p>
+                    <button id="connectBtn2" class="gold-bg hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
+                        Connect Wallet
+                    </button>
                 </div>
+
                 <div id="registryForm" class="hidden bg-white rounded-xl shadow-xl border border-slate-200 p-8">
                     <form id="ipForm">
                         <div class="mb-6">
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">Title</label>
-                            <input type="text" id="titleInput" required class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none">
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Title of Work</label>
+                            <input type="text" id="titleInput" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all" placeholder="e.g., Revolutionary AI Algorithm">
                         </div>
+
                         <div class="mb-6">
                             <label class="block text-sm font-semibold text-slate-700 mb-2">Owner Name</label>
-                            <input type="text" id="ownerInput" required class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none">
+                            <input type="text" id="ownerInput" required class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all" placeholder="e.g., John Doe">
                         </div>
+
                         <div class="mb-6">
-                            <label class="block text-sm font-semibold text-slate-700 mb-2">Description / Data</label>
-                            <textarea id="descriptionInput" required rows="5" class="w-full px-4 py-3 border border-slate-300 rounded-lg outline-none"></textarea>
+                            <label class="block text-sm font-semibold text-slate-700 mb-2">Description / Content Hash</label>
+                            <textarea id="descriptionInput" required rows="5" class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all" placeholder="Provide a detailed description or content hash (e.g., SHA-256) of your work..."></textarea>
                         </div>
-                        <button type="submit" id="registerBtn" class="w-full gold-bg hover:bg-amber-500 text-white px-6 py-4 rounded-lg font-semibold text-lg shadow-lg">Register on Blockchain</button>
+
+                        <button type="submit" id="registerBtn" class="w-full gold-bg hover:bg-amber-500 text-white px-6 py-4 rounded-lg font-semibold text-lg transition-all duration-200 shadow-lg">
+                            Register Idea on Blockchain
+                        </button>
                     </form>
                 </div>
+
                 <div class="mt-8 text-center">
-                    <button id="goToVerifyBtn" class="text-slate-600 hover:text-slate-800 font-medium underline">or verify an existing registration</button>
+                    <button id="goToVerifyBtn" class="text-slate-600 hover:text-slate-800 font-medium underline">
+                        or verify an existing registration
+                    </button>
                 </div>
             </div>
         </section>
@@ -97,41 +152,82 @@
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-4xl font-bold text-slate-900 mb-4">Verify Registration</h2>
+                    <p class="text-lg text-slate-600">Enter a registration ID to retrieve the immutable record from the blockchain.</p>
                 </div>
+
                 <div class="bg-white rounded-xl shadow-xl border border-slate-200 p-8 mb-8">
-                    <div class="flex space-x-4">
-                        <input type="number" id="verifyIdInput" class="flex-1 px-4 py-3 border border-slate-300 rounded-lg outline-none" placeholder="Enter Record ID (e.g., 1)">
-                        <button id="verifyBtn" class="gold-bg hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold">Verify</button>
+                    <div class="mb-6">
+                        <label class="block text-sm font-semibold text-slate-700 mb-2">Registration ID</label>
+                        <div class="flex space-x-4">
+                            <input type="text" id="verifyIdInput" class="flex-1 px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-400 focus:border-transparent outline-none transition-all" placeholder="Enter Registration ID (e.g., 1)">
+                            <button id="verifyBtn" class="gold-bg hover:bg-amber-500 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-200">
+                                Verify
+                            </button>
+                        </div>
                     </div>
                 </div>
-                <div id="verifyResult" class="hidden bg-white rounded-xl shadow-xl border border-slate-200 p-8 certificate-shadow"></div>
+
+                <div id="verifyResult" class="hidden bg-white rounded-xl shadow-xl border border-slate-200 p-8 certificate-shadow">
+                    <!-- Result will be populated by JS -->
+                </div>
+
                 <div class="mt-8 text-center">
-                    <button id="backToRegistryBtn" class="text-slate-600 hover:text-slate-800 font-medium underline">← Back to Registry</button>
+                    <button id="backToRegistryBtn" class="text-slate-600 hover:text-slate-800 font-medium underline">
+                        ← Back to Registry
+                    </button>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Success Modal -->
     <div id="successModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
         <div class="bg-white rounded-xl shadow-2xl max-w-2xl w-full p-8 certificate-shadow fade-in">
             <div class="text-center mb-6">
-                <div class="w-20 h-20 gold-bg rounded-full flex items-center justify-center mx-auto mb-4">✓</div>
+                <div class="w-20 h-20 gold-bg rounded-full flex items-center justify-center mx-auto mb-4">
+                    <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                </div>
                 <h3 class="text-3xl font-bold text-slate-900 mb-2">Successfully Registered!</h3>
+                <p class="text-slate-600">Your intellectual property has been recorded on the Celo Mainnet.</p>
             </div>
+
             <div class="bg-slate-50 rounded-lg p-6 mb-6 border-2 gold-border">
                 <div class="grid grid-cols-2 gap-4 mb-4">
-                    <div><p class="text-sm text-slate-500 font-semibold">ID</p><p id="modalRecordId" class="text-lg font-mono text-slate-900">-</p></div>
-                    <div><p class="text-sm text-slate-500 font-semibold">Timestamp</p><p id="modalTimestamp" class="text-lg text-slate-900">-</p></div>
+                    <div>
+                        <p class="text-sm text-slate-500 font-semibold mb-1">Registration ID</p>
+                        <p id="modalRecordId" class="text-lg font-mono text-slate-900">-</p>
+                    </div>
+                    <div>
+                        <p class="text-sm text-slate-500 font-semibold mb-1">Timestamp</p>
+                        <p id="modalTimestamp" class="text-lg text-slate-900">-</p>
+                    </div>
                 </div>
-                <div class="mb-4"><p class="text-sm text-slate-500 font-semibold">Title</p><p id="modalTitle" class="text-lg text-slate-900">-</p></div>
-                <div><p class="text-sm text-slate-500 font-semibold">Tx Hash</p><p id="modalTxHash" class="text-sm font-mono text-slate-700 break-all">-</p></div>
+                <div class="mb-4">
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Title</p>
+                    <p id="modalTitle" class="text-lg text-slate-900">-</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Owner</p>
+                    <p id="modalOwner" class="text-lg text-slate-900">-</p>
+                </div>
+                <div>
+                    <p class="text-sm text-slate-500 font-semibold mb-1">Transaction Hash</p>
+                    <p id="modalTxHash" class="text-sm font-mono text-slate-700 break-all">-</p>
+                </div>
             </div>
-            <button id="closeModalBtn" class="w-full gold-bg hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold">Close</button>
+
+            <button id="closeModalBtn" class="w-full gold-bg hover:bg-amber-500 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-200">
+                Close
+            </button>
         </div>
     </div>
 
+    <!-- JavaScript (Fixed & Mainnet) -->
     <script>
+        // ==================== CONFIG ====================
         const contractAddress = "0x56CaAA7770A49CE9386C8329144B9585A83Fc402";
         const contractABI = [
             "function registerRecord(string memory _title, string memory _ownerName, string memory _data) public returns (uint256)",
@@ -139,8 +235,9 @@
             "function recordCount() public view returns (uint256)",
             "event RecordRegistered(uint256 indexed id, address indexed owner, uint256 timestamp)"
         ];
+
         const CELO_MAINNET = {
-            chainId: "0xa4ec", 
+            chainId: "0xa4ec", // 42220
             chainName: "Celo Mainnet",
             nativeCurrency: { name: "CELO", symbol: "CELO", decimals: 18 },
             rpcUrls: ["https://forno.celo.org"],
@@ -149,105 +246,163 @@
 
         let provider, signer, contract, userAddress;
 
+        // ==================== LOGIC ====================
         async function connectWallet() {
             if (!window.ethereum) return alert("Please install MetaMask!");
+            
             try {
                 await window.ethereum.request({ method: "eth_requestAccounts" });
-                // Use a fallback provider until connected
+                
+                // Initialize Provider
                 provider = new ethers.providers.Web3Provider(window.ethereum);
                 signer = provider.getSigner();
                 userAddress = await signer.getAddress();
 
+                // Check Network
                 const { chainId } = await provider.getNetwork();
                 if (chainId !== 42220) {
                     try {
-                        await window.ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: CELO_MAINNET.chainId }] });
+                        await window.ethereum.request({
+                            method: "wallet_switchEthereumChain",
+                            params: [{ chainId: CELO_MAINNET.chainId }]
+                        });
                     } catch (err) {
-                        if (err.code === 4902) await window.ethereum.request({ method: "wallet_addEthereumChain", params: [CELO_MAINNET] });
+                        if (err.code === 4902) {
+                            await window.ethereum.request({
+                                method: "wallet_addEthereumChain",
+                                params: [CELO_MAINNET]
+                            });
+                        }
                     }
+                    // Refresh provider after switch
                     provider = new ethers.providers.Web3Provider(window.ethereum);
                     signer = provider.getSigner();
                 }
 
                 contract = new ethers.Contract(contractAddress, contractABI, signer);
                 updateWalletUI();
+                
+                // Logic to show form if we are on registry view
                 if (!document.getElementById("registryView").classList.contains("hidden")) {
                     document.getElementById("connectPrompt").classList.add("hidden");
                     document.getElementById("registryForm").classList.remove("hidden");
                 }
-            } catch (err) { alert("Connection Error: " + err.message); }
+
+            } catch (error) {
+                console.error("Connection Error:", error);
+                alert("Connection Failed: " + error.message);
+            }
         }
 
         function updateWalletUI() {
-            document.getElementById("walletAddress").textContent = userAddress.slice(0, 6) + "..." + userAddress.slice(-4);
+            document.getElementById("walletAddress").innerText = userAddress.slice(0, 6) + "..." + userAddress.slice(-4);
             document.getElementById("walletStatus").classList.remove("hidden");
-            document.getElementById("connectBtn").textContent = "Connected";
-            document.getElementById("connectBtn2").textContent = "Connected";
+            document.getElementById("connectBtn").innerText = "Connected";
+            document.getElementById("connectBtn2").innerText = "Connected";
         }
 
         async function registerIdea(title, owner, desc) {
+            if (!contract) return alert("Connect wallet first!");
+            
             try {
                 const btn = document.getElementById("registerBtn");
                 const oldText = btn.innerText;
-                btn.innerText = "Confirming..."; btn.disabled = true;
+                btn.innerText = "Confirming...";
+                btn.disabled = true;
 
                 const tx = await contract.registerRecord(title, owner, desc);
                 btn.innerText = "Processing...";
+                
                 const receipt = await tx.wait();
-
                 const event = receipt.events.find(e => e.event === 'RecordRegistered');
                 const id = event.args.id.toNumber();
                 const block = await provider.getBlock(receipt.blockNumber);
 
-                document.getElementById("modalRecordId").textContent = `#${id}`;
-                document.getElementById("modalTimestamp").textContent = new Date(block.timestamp * 1000).toLocaleString();
-                document.getElementById("modalTitle").textContent = title;
-                document.getElementById("modalTxHash").textContent = tx.hash;
+                // Show Success
+                document.getElementById("modalRecordId").innerText = `#${id}`;
+                document.getElementById("modalTimestamp").innerText = new Date(block.timestamp * 1000).toLocaleString();
+                document.getElementById("modalTitle").innerText = title;
+                document.getElementById("modalOwner").innerText = owner;
+                document.getElementById("modalTxHash").innerText = tx.hash;
                 document.getElementById("successModal").classList.remove("hidden");
 
                 document.getElementById("ipForm").reset();
-                btn.innerText = oldText; btn.disabled = false;
-            } catch (err) { 
-                alert("Error: " + (err.reason || err.message)); 
-                document.getElementById("registerBtn").innerText = "Register on Blockchain";
+                btn.innerText = oldText;
+                btn.disabled = false;
+
+            } catch (err) {
+                console.error(err);
+                alert("Error: " + (err.reason || err.message));
+                document.getElementById("registerBtn").innerText = "Register Idea on Blockchain";
                 document.getElementById("registerBtn").disabled = false;
             }
         }
 
         async function verifyRecord(id) {
             const div = document.getElementById("verifyResult");
-            div.classList.remove("hidden"); div.innerHTML = "Searching...";
+            div.classList.remove("hidden");
+            div.innerHTML = '<div class="text-center">Searching Blockchain...</div>';
+
             try {
+                // Fallback to RPC if not connected
                 let readContract = contract;
-                if(!readContract) {
+                if (!readContract) {
                     const p = new ethers.providers.JsonRpcProvider(CELO_MAINNET.rpcUrls[0]);
                     readContract = new ethers.Contract(contractAddress, contractABI, p);
                 }
+
                 const rec = await readContract.getRecord(id);
+                
                 div.innerHTML = `
-                    <div class="border-b-4 gold-border pb-4 mb-6"><h3 class="text-2xl font-bold">Certificate Found</h3><p class="text-sm text-gray-500">Verified on Celo Mainnet</p></div>
-                    <p><strong>ID:</strong> #${id}</p>
-                    <p><strong>Date:</strong> ${new Date(rec.timestamp.toNumber()*1000).toLocaleString()}</p>
-                    <p><strong>Title:</strong> ${rec.title}</p>
-                    <p><strong>Owner:</strong> ${rec.ownerName}</p>
-                    <div class="bg-green-100 p-2 mt-4 text-center text-green-800 rounded">✓ Authentic Record</div>
+                    <div class="border-b-4 gold-border pb-4 mb-6">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Certificate of Registration</h3>
+                        <p class="text-sm text-slate-500">Verified on Celo Mainnet</p>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mb-4">
+                        <div><p class="text-sm text-slate-500 font-semibold">ID</p><p class="text-lg font-mono">#${id}</p></div>
+                        <div><p class="text-sm text-slate-500 font-semibold">Date</p><p class="text-lg">${new Date(rec.timestamp.toNumber()*1000).toLocaleString()}</p></div>
+                    </div>
+                    <div class="mb-4"><p class="text-sm text-slate-500 font-semibold">Title</p><p class="text-lg">${rec.title}</p></div>
+                    <div class="mb-4"><p class="text-sm text-slate-500 font-semibold">Owner</p><p class="text-lg">${rec.ownerName}</p></div>
+                    <div class="bg-green-50 border border-green-300 p-4 text-center rounded-lg">
+                        <p class="text-green-800 font-bold">✓ Authentic Blockchain Record</p>
+                    </div>
                 `;
-            } catch (e) { div.innerHTML = `<div class="text-red-500 text-center">Record #${id} not found.</div>`; }
+            } catch (e) {
+                div.innerHTML = `<div class="text-red-500 text-center font-bold">Record #${id} not found on Mainnet.</div>`;
+            }
         }
 
-        // Handlers
-        const show = (id) => { 
-            ['landingView', 'registryView', 'verifyView'].forEach(v => document.getElementById(v).classList.add('hidden'));
-            document.getElementById(id).classList.remove('hidden');
-        };
-        document.getElementById("connectBtn").onclick = connectWallet;
-        document.getElementById("connectBtn2").onclick = connectWallet;
-        document.getElementById("getStartedBtn").onclick = () => show('registryView');
-        document.getElementById("goToVerifyBtn").onclick = () => { show('verifyView'); document.getElementById("verifyResult").classList.add('hidden'); };
-        document.getElementById("backToRegistryBtn").onclick = () => show('registryView');
-        document.getElementById("closeModalBtn").onclick = () => document.getElementById("successModal").classList.add("hidden");
-        document.getElementById("verifyBtn").onclick = () => verifyRecord(document.getElementById("verifyIdInput").value);
-        document.getElementById("ipForm").onsubmit = (e) => { e.preventDefault(); registerIdea(document.getElementById("titleInput").value, document.getElementById("ownerInput").value, document.getElementById("descriptionInput").value); };
+        // View Switcher
+        function showView(viewId) {
+            ['landingView', 'registryView', 'verifyView'].forEach(id => document.getElementById(id).classList.add('hidden'));
+            document.getElementById(viewId).classList.remove('hidden');
+        }
+
+        // Listeners
+        document.getElementById("connectBtn").addEventListener("click", connectWallet);
+        document.getElementById("connectBtn2").addEventListener("click", connectWallet);
+        
+        document.getElementById("getStartedBtn").addEventListener("click", () => showView('registryView'));
+        document.getElementById("goToVerifyBtn").addEventListener("click", () => { showView('verifyView'); document.getElementById("verifyResult").classList.add('hidden'); });
+        document.getElementById("backToRegistryBtn").addEventListener("click", () => showView('registryView'));
+        
+        document.getElementById("closeModalBtn").addEventListener("click", () => document.getElementById("successModal").classList.add("hidden"));
+        
+        document.getElementById("ipForm").addEventListener("submit", (e) => {
+            e.preventDefault();
+            registerIdea(
+                document.getElementById("titleInput").value,
+                document.getElementById("ownerInput").value,
+                document.getElementById("descriptionInput").value
+            );
+        });
+
+        document.getElementById("verifyBtn").addEventListener("click", () => {
+            const id = document.getElementById("verifyIdInput").value;
+            if(id) verifyRecord(id);
+        });
+
     </script>
 </body>
 </html>
